@@ -1,0 +1,22 @@
+# 58 - Faça um programa que some os números primos existentes entre 'a' e 'b', onde 'a' e 'b'
+# são informados pelo usuario
+
+a = int(input("Digite o valor de 'a': "))
+b = int(input("Digite o valor de 'b': "))
+
+# Inicializa a variável para armazenar a soma dos números primos
+soma_primos = 0
+
+# Loop através dos números entre 'a' e 'b' e soma os números primos
+for num in range(a, b + 1):
+    if num > 1:
+        is_prime = True
+        # Verifica se o número é divisível por algum número menor que ele
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            soma_primos += num
+
+print(f"A soma dos números primos entre {a} e {b} é: {soma_primos}")
